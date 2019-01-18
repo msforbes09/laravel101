@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
-Route::get('/create', 'TicketsController@create');
-Route::post('/create', 'TicketsController@store');
-Route::get('/tickets', 'TicketsController@index');
-Route::get('/ticket/{slug?}', 'TicketsController@show');
-Route::get('/ticket/{slug?}/edit','TicketsController@edit');
-Route::post('/ticket/{slug?}/edit','TicketsController@update');
-Route::post('/ticket/{slug?}/delete','TicketsController@destroy');
-Route::post('/comment', 'CommentsController@newComment');
+// Route::get('/', 'PagesController@home');
+// Route::get('/create', 'TicketsController@create');
+// Route::post('/create', 'TicketsController@store');
+// Route::get('/tickets', 'TicketsController@index');
+// Route::get('/ticket/{slug?}', 'TicketsController@show');
+// Route::get('/ticket/{slug?}/edit','TicketsController@edit');
+// Route::post('/ticket/{slug?}/edit','TicketsController@update');
+// Route::post('/ticket/{slug?}/delete','TicketsController@destroy');
+// Route::post('/comment', 'CommentsController@newComment');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
