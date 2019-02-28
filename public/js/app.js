@@ -42,3 +42,23 @@ new Vue({
         },
     }
 })
+
+new Vue({
+    el: '#app-4',
+    data: {
+        tasks: [
+            {description: 'Learn HTML5', completed: true},
+            {description: 'Learn CSS', completed: true},
+            {description: 'Learn Javascript', completed: true},
+            {description: 'Learn PHP', completed: false},
+            {description: 'Learn MySQL', completed: false},
+            {description: 'Learn Laravel', completed: false},
+            {description: 'Learn Vue.js', completed: false},
+        ]
+    },
+    computed: {
+        uncompleteTasks() {
+            return this.tasks.filter(task => ! task.completed)
+        }
+    }
+})

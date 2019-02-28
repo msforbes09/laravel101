@@ -3,7 +3,7 @@
 
     <div class="content">
         <ul>
-            <li v-for="name in names" v-text="name"></li>
+            <li v-for="name in names">@{{ name }}</li>
         </ul>
     </div>{{-- content --}}
 

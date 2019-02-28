@@ -10,11 +10,17 @@
 
 <body>
     <div class="container">
-        @include ('vue101.lesson.data-binding')
+        <div class="section">
+            <h1 class="title">Vue Basics</h1><!-- title -->
+        </div>
 
-        @include ('vue101.lesson.lists')
-        
+        @include ('vue101.lesson.computed')
+
         @include ('vue101.lesson.attribute-class-binding')
+        
+        @include ('vue101.lesson.lists')
+
+        @include ('vue101.lesson.data-binding')
     </div><!-- container -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
