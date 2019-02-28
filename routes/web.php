@@ -22,4 +22,8 @@
 // Route::post('/comment', 'CommentsController@newComment');
 // Route::get('/home', 'HomeController@index')->name('home');
 // Auth::routes();
-Route::resource('/passwords', 'PasswordsController');
+// Route::resource('/passwords', 'PasswordsController');
+
+Route::get('/vue101', function () {
+    return view('vue101.index');
+});

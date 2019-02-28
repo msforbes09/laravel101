@@ -9,8 +9,7 @@
 </head>
 
 <body class="has-navbar-fixed-top">
-
-    <nav class="navbar is-fixed-top" id="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top is-light" id="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -24,7 +23,7 @@
         </div><!-- navbar-brand -->
 
         <div id="navbarContent" class="navbar-menu" :class="{ 'is-active': active }">
-            <div class="navbar-start">
+            <div class="navbar-end">
                 <a class="navbar-item" href="#">Home</a>
 
                 <a class="navbar-item" href="#">Documentation</a>
@@ -32,7 +31,7 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                     <span class="navbar-link">More</span>
 
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="#">About</a>
 
                         <a class="navbar-item" href="#">Jobs</a>
@@ -45,22 +44,10 @@
                     </div><!-- dropdown -->
                 </div><!-- has-dropdown -->
             </div><!-- navbar-start -->
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div><!-- buttons -->
-                </div><!-- navbar-item -->
-            </div><!-- navbar-end -->
         </div><!-- navbar-menu -->
     </nav><!-- navbar -->
+
+    @yield ('content')
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/main.js"></script>
