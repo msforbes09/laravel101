@@ -10,21 +10,9 @@
 
 <body>
     <div class="container">
-        <section id="app-1" class="section">
-            <h1 class="title">
-                Vue Basics
-            </h1><!-- title -->
+        @include ('vue101.lesson.data-binding')
 
-            <div class="field">
-                <label class="label" for="">Basic Data Binding</label>
-            
-                <div class="control">
-                    <input class="input" type="text" id="" value="" placeholder="Text input" v-model="message">
-                </div><!-- control -->
-            </div><!-- field -->
-
-            <div class="subtitle">Here is the content: @{{ message }}</div>
-        </section><!-- section -->
+        @include ('vue101.lesson.lists')
     </div><!-- container -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
