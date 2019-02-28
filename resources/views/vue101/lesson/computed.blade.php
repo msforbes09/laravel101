@@ -5,7 +5,13 @@
         <div class="subtitle">All Tasks</div>
 
         <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
+            <li v-for="task in tasks">
+                @{{ task.description }} 
+                
+                <button class="button is-link is-small is-rounded is-outlined">
+                    <span class="fa fa-check"></span>
+                </button>
+            </li>
         </ul>
     </div>
 

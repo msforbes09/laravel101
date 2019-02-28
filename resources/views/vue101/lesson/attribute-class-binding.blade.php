@@ -7,5 +7,5 @@
     
     <button class="button" :disabled="isDisabled" @click="disable">Disable Me</button>
     
-    <button class="button" :class="{ 'is-loading': isLoading }" @click="startLoad">Start Loading</button>
+    <button class="button is-info" :class="{ 'is-loading': isLoading }" @click="startLoad">Start Loading</button>
 </section><!-- section -->

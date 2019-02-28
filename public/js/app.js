@@ -50,7 +50,7 @@ new Vue({
             {description: 'Learn HTML5', completed: true},
             {description: 'Learn CSS', completed: true},
             {description: 'Learn Javascript', completed: true},
-            {description: 'Learn PHP', completed: false},
+            {description: 'Learn PHP', completed: true},
             {description: 'Learn MySQL', completed: false},
             {description: 'Learn Laravel', completed: false},
             {description: 'Learn Vue.js', completed: false},
@@ -61,4 +61,31 @@ new Vue({
             return this.tasks.filter(task => ! task.completed)
         }
     }
+})
+
+Vue.component('message', {
+    props: ['title'],
+
+    template: `
+        <article class="message" v-show="isVisible">
+            <div class="message-header">
+                <p>{{ title }}</p>
+        
+                <button class="delete" aria-label="delete" @click=" isVisible = false "></button>
+            </div><!-- message-header -->
+        
+            <div class="message-body">
+                <slot></slot>
+            </div><!-- message-body -->
+        </article><!-- message -->
+    `,
+    data() {
+        return {
+            isVisible: true
+        }
+     }   
+})
+
+new Vue({
+    el: '#app-5'
 })
