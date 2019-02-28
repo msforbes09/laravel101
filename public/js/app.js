@@ -89,3 +89,33 @@ Vue.component('message', {
 new Vue({
     el: '#app-5'
 })
+
+Vue.component('Modal', {
+    props: ['title'],
+    template: `
+        <div class="modal is-active">
+            <div class="modal-background" @click="$emit('close')"></div>
+            
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" v-text="title"></p>
+                    <button class="delete" aria-label="close" @click="$emit('close')"></button>
+                </header><!-- modal-card-head -->
+        
+                <section class="modal-card-body">
+                    <slot></slot>
+                </section><!-- modal-card-body -->
+                
+                <footer class="modal-card-foot">
+                    <button class="button" @click="$emit('close')">Okay</button>
+                </footer><!-- modal-card-foot -->
+            </div><!-- modal-card -->
+        </div><!-- modal -->`
+})
+
+new Vue({
+    el: '#app-6',
+    data: {
+        modalShown: false
+    }
+})

@@ -1,4 +1,6 @@
 <section class="section" id="app-5">
+    <label class="label" for="">Component: Message</label>
+    
     <Message title="Message 1" classes="is-danger">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
