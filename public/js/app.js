@@ -21,3 +21,24 @@ var app2 = new Vue({
         }
     }
 });
+
+new Vue({
+    el: '#app-3',
+    data: {
+        title: 'Im a generated title in Vue',
+        isPrimary: false,
+        isLoading: false,
+        isDisabled: false,
+    },
+    methods: {
+        toggleClass() {
+            this.isPrimary = ! this.isPrimary
+        },
+        startLoad() {
+            this.isLoading = true
+        },
+        disable() {
+            this.isDisabled = true
+        },
+    }
+})

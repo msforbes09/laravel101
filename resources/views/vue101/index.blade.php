@@ -13,6 +13,8 @@
         @include ('vue101.lesson.data-binding')
 
         @include ('vue101.lesson.lists')
+        
+        @include ('vue101.lesson.attribute-class-binding')
     </div><!-- container -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
