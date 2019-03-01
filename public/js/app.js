@@ -124,7 +124,7 @@ Vue.component('tabs', {
     template: `
         <div>
             <div>
-                <div class="tabs is-boxed">
+                <div class="tabs is-toggle is-toggle-rounded">
                     <ul>
                         <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }" @click="selectTab(tab)">
                             <a>{{ tab.name }}</a>
