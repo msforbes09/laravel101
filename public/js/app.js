@@ -123,19 +123,52 @@ new Vue({
 Vue.component('tabs', {
     template: `
         <div>
-            <div class="tabs">
-                <ul>
-                    <li class="is-active"><a>Pictures</a></li>
-            
-                    <li><a>Music</a></li>
-                </ul>
-            </div><!-- tabs -->
+            <div>
+                <div class="tabs is-boxed">
+                    <ul>
+                        <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }" @click="selectTab(tab)">
+                            <a>{{ tab.name }}</a>
+                        </li>
+                    </ul>
+                </div><!-- tabs -->
+            </div>
 
-            <div class="tabs-detail">
+            <div class="tabs-details">
                 <slot></slot>
             </div>
         </div>
     `,
+    data() {
+        return { tabs: [] }
+    },
+    methods: {
+        selectTab(selectedTab) {
+            this.tabs.forEach(tab => {
+                tab.isActive = (tab == selectedTab)
+            })
+        }
+    },
+    created() {
+        this.tabs = this.$children;
+    }
+})
+
+Vue.component('tab', {
+    props: {
+        name: { required: true },
+        selected: { default: false },
+    },
+    data() {
+        return {
+            isActive: false
+        }
+    },
+    template: `
+        <div v-show="isActive"><slot></slot></div>
+    `,
+    mounted() {
+        this.isActive = this.selected
+    }
 })
 
 new Vue({

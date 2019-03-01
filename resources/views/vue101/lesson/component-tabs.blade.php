@@ -1,6 +1,6 @@
 <section class="section" id="app-7">
     <tabs>
-        <tab name="Tab 1">
+        <tab name="Tab 1" selected="true">
             <h1>This is the content of first Tab.</h1>
         </tab>
 
