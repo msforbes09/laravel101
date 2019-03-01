@@ -14,6 +14,8 @@
             <h1 class="title">Vue Basics</h1><!-- title -->
         </div>
 
+        @include ('vue101.lesson.component-tabs')
+
         @include ('vue101.lesson.component-modal')
 
         @include ('vue101.lesson.component-message')

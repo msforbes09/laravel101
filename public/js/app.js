@@ -119,3 +119,25 @@ new Vue({
         modalShown: false
     }
 })
+
+Vue.component('tabs', {
+    template: `
+        <div>
+            <div class="tabs">
+                <ul>
+                    <li class="is-active"><a>Pictures</a></li>
+            
+                    <li><a>Music</a></li>
+                </ul>
+            </div><!-- tabs -->
+
+            <div class="tabs-detail">
+                <slot></slot>
+            </div>
+        </div>
+    `,
+})
+
+new Vue({
+    el: '#app-7'
+})
