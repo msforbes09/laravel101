@@ -9,7 +9,8 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        return $this->generateWeek($this->today());
+        $week = new Week;
+        return $week->alert();
         // return view('calendar.index')
             // ->with('week', $this->firstWeek());
     }
@@ -22,22 +23,19 @@ class CalendarController extends Controller
     protected function today()
     {
         // return mktime(0, 0, 0, date('n'), date('j'), date('Y'));
-        return mktime(0, 0, 0, 4, 9, 2018);
+        return mktime(0, 0, 0, 3, 2, 2019);
     }
 
-    protected function dayOfFirst()
+    protected function numberOfWeeks($day)
     {
-        return date('w', mktime(0, 0, 0, date('n'), 1, date('Y')));
-    }
+        $first = date('W', mktime(0, 0, 0, date('n', $day), 2 , date('Y', $day)));
+        $last = date('W', mktime(0, 0, 0, date('n', $day) + 1, 1 , date('Y', $day)));
 
-    protected function numberOfWeeks($month)
-    {
-        return 5;
+        return $last - $first + 1;
     }
 
     protected function generateWeek($day)
     {
-        // return $this->showDate($day);
         return [
             'sun' => $this->showDate(
                     mktime(0, 0, 0, date('n', $day), (date('j', $day) - date('w', $day)), date('Y', $day))),
