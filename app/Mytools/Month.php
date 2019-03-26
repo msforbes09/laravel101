@@ -2,13 +2,13 @@
 
 namespace App\Mytools;
 
+use App\Mytools\Week;
+
 class Month
 {
     public $name;
     public $firstDay;    
     public $lastDay;    
-    public $firstSunday;
-    public $lastSunday;
     public $noOfWeeks;
     public $weeks = [];
 
@@ -17,37 +17,28 @@ class Month
         $this->firstDay = mktime(0, 0, 0, $month, 1, $year);
         $this->lastDay = mktime(0, 0, 0, $month, date('t', $this->firstDay), $year);
 
-        $this->firstSunday = $this->getSunday($this->firstDay);
-        $this->lastSunday = $this->getSunday($this->lastDay);
-
-        $this->name();
+        $this->setName();
         $this->setNoOfWeeks();
-        $this->generateWeeks();
+        $this->generateWeeks($this->firstDay);
     }
 
-    protected function name()
+    protected function setName()
     {
-        $this->name = date('F', $this->firstDay);
+        return $this->name = date('F', $this->firstDay);
     }
 
-    protected function getSunday($day)
+    protected function setNoOfweeks()
     {
-        return mktime(0, 0, 0,
-            date('m', $day),
-            date('d', $day) - date('w', $day),
-            date('Y', $day)
-        );
+        return $this->noOfWeeks = (date('W', $this->lastDay) - date('W', $this->firstDay) + 1); 
     }
 
-    protected function setNoOfWeeks()
+    protected function generateWeeks($day)
     {
-        $this->noOfWeeks = date('W', $this->lastSunday) - date('W', $this->firstSunday) + 1;
-    }
-
-    protected function generateWeeks()
-    {
-        for ($i=0; $i < $this->noOfWeeks ; $i++) { 
-            array_push($this->weeks, $i);
+        for ($i=0; $i < $this->noOfWeeks; $i++) { 
+            array_push(
+                $this->weeks,
+                    new Week(mktime(0, 0, 0, date('n', $day), date('j', $day) + (7 * $i), date('Y', $day)))
+            );
         }
     }
 }
