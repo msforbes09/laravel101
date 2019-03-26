@@ -12,10 +12,9 @@ class CalendarController extends Controller
     {
         $month = new Month($month, $year);
 
-        // return $this->showDate($month->firstDay);
-        // return date('W', $month->firstDay);
-        dd($month);
+        // dd($month);
 
+        return view('calendar.index', compact('month'));
     }
 
     protected function showDate($date)

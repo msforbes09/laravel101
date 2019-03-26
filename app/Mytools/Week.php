@@ -2,10 +2,12 @@
 
 namespace App\Mytools;
 
+use App\Mytools\Day;
+
 class Week
 {
     public $weekNo;
-    public $firstDay;
+    protected $firstDay;
     public $days = [];
 
     function __construct($day)
@@ -23,10 +25,10 @@ class Week
 
     protected function generateDays($day)
     {
-        for ($i=0; $i < 7; $i++) { 
-             array_push($this->days,
-                date('M d Y', mktime(0, 0, 0, date('n', $day), date('j', $day) + $i, date('Y', $day)))
-            );
+        for ($i=0; $i < 7; $i++) {
+            $this->days[ strtolower(date('D', $day)) ] = new Day($day);
+
+            $day = mktime(0, 0, 0, date('n', $day), date('j', $day) + 1, date('Y', $day));
          } 
     }
 }
