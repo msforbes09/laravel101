@@ -8,7 +8,7 @@ class Week
 {
     public $weekNo;
     protected $firstDay;
-    public $days = [];
+    protected $days = [];
 
     function __construct($day)
     {
@@ -30,5 +30,20 @@ class Week
 
             $day = mktime(0, 0, 0, date('n', $day), date('j', $day) + 1, date('Y', $day));
          } 
+    }
+
+    public function get($weekday)
+    {
+        return array_key_exists($weekday, $this->days) ? $this->days[$weekday] : '';
+    }
+
+    public function getDate($weekday)
+    {
+        return array_key_exists($weekday, $this->days) ? $this->days[$weekday]->fullDate : '';
+    }
+
+    public function getDay($weekday)
+    {
+        return array_key_exists($weekday, $this->days) ? $this->days[$weekday]->day : '';
     }
 }

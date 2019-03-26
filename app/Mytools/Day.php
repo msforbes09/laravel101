@@ -4,15 +4,14 @@ namespace App\Mytools;
 
 class Day
 {
-    protected $value;
+    public $value;
+    public $fullDate;
+    public $day;
 
     function __construct($day)
     {
         $this->value = $day;
-    }
-
-    public function getFullDate()
-    {
-        return date('M d Y', $this->$value);
+        $this->fullDate = date('F d, Y', $day);
+        $this->day = date('j', $day);
     }
 }

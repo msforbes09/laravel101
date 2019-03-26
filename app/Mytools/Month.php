@@ -7,6 +7,7 @@ use App\Mytools\Week;
 class Month
 {
     public $name;
+    public $year;
     public $firstDay;    
     public $lastDay;    
     public $noOfWeeks;
@@ -24,7 +25,8 @@ class Month
 
     protected function setName()
     {
-        return $this->name = date('F', $this->firstDay);
+        $this->name = date('F', $this->firstDay);
+        $this->year = date('Y', $this->firstDay);
     }
 
     protected function setNoOfweeks()

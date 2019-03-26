@@ -11,8 +11,69 @@
 <body>
     <section class="section">
         <div class="container">
-            <p class="title">{{ $month->name }}</p>
+            <p class="title">{{ "$month->name $month->year"}}</p>
             
+            <div class="columns">
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Monday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Tuesday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Wednesday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Thursday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Friday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Saturday</div>
+                </div><!-- column -->
+
+                <div class="column is-paddingless">
+                    <div class="box is-radiusless">Sunday</div>
+                </div><!-- column -->
+            </div><!-- columns -->
+
+            @foreach ( $month->weeks as $week )
+                <div class="columns">
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('mon') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('tue') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('wed') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('thu') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('fri') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('sat') }}</div>
+                    </div><!-- column -->
+
+                    <div class="column is-paddingless">
+                        <div class="box is-radiusless">{{ $week->getDay('sun') }}</div>
+                    </div><!-- column -->
+                </div><!-- columns -->
+            @endforeach
         </div><!-- container -->
     </section><!-- section -->
 </body>

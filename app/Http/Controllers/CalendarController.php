@@ -12,7 +12,7 @@ class CalendarController extends Controller
     {
         $month = new Month($month, $year);
 
-        // dd($month);
+        // dd($month->weeks[0]->get('mon'));
 
         return view('calendar.index', compact('month'));
     }
