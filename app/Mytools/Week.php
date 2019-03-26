@@ -8,11 +8,13 @@ class Week
 {
     public $weekNo;
     protected $firstDay;
+    protected $month;
     protected $days = [];
 
-    function __construct($day)
+    function __construct($month, $day)
     {
         $this->weekNo = date('W', $day);
+        $this->month = $month;
 
         $this->setFirstDay($day);
         $this->generateDays($this->firstDay);
@@ -45,5 +47,10 @@ class Week
     public function getDay($weekday)
     {
         return array_key_exists($weekday, $this->days) ? $this->days[$weekday]->day : '';
+    }
+
+    public function isIncluded($weekday)
+    {
+        return date('m', $this->days[$weekday]->value) === $this->month;
     }
 }

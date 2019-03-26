@@ -39,7 +39,7 @@ class Month
         for ($i=0; $i < $this->noOfWeeks; $i++) { 
             array_push(
                 $this->weeks,
-                    new Week(mktime(0, 0, 0, date('n', $day), date('j', $day) + (7 * $i), date('Y', $day)))
+                    new Week(date('m', $this->firstDay) ,mktime(0, 0, 0, date('n', $day), date('j', $day) + (7 * $i), date('Y', $day)))
             );
         }
     }
