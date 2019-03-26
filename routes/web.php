@@ -27,4 +27,4 @@
 Route::get('/vue101', function () {
     return view('vue101.index');
 });
-Route::get('/calendar', 'CalendarController@index');
+Route::get('/calendar/{month}/{year}', 'CalendarController@index');
